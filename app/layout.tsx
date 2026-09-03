@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     'https://ian-lucas-portfolio-2026.command-syst-1786.chatgpt.site',
   ),
-  title: 'Ian Lucas — Portfólio',
+  title: 'Ian Lucas | Portfólio',
   description:
     'Portfólio de Ian Lucas, desenvolvedor full-stack, designer e estudante de Ciência da Computação.',
   openGraph: {
-    title: 'Ian Lucas — Portfólio',
+    title: 'Ian Lucas | Portfólio',
     description:
       'Desenvolvedor full-stack, designer e estudante de Ciência da Computação.',
     type: 'website',
@@ -30,13 +30,13 @@ export const metadata: Metadata = {
         url: '/og.png',
         width: 1200,
         height: 630,
-        alt: 'Ian Lucas — Desenvolvedor Full-Stack e Designer',
+        alt: 'Ian Lucas | Desenvolvedor Full-Stack e Designer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ian Lucas — Portfólio',
+    title: 'Ian Lucas | Portfólio',
     description:
       'Desenvolvedor full-stack, designer e estudante de Ciência da Computação.',
     images: ['/og.png'],

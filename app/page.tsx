@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import {
+  Award,
   ArrowDownRight,
   ArrowLeft,
   ArrowRight,
@@ -11,7 +12,6 @@ import {
   Mail,
   Moon,
   Palette,
-  Sparkles,
   Sun,
 } from 'lucide-react';
 import gsap from 'gsap';
@@ -113,6 +113,29 @@ const skills = [
   'Canva',
 ];
 
+const certificates = [
+  {
+    title: 'Organização da VIII SESCOMP',
+    issuer: 'Universidade Federal do Ceará',
+    date: '20 a 23 de outubro de 2025',
+    workload: '32 horas',
+    description:
+      'Participação na organização da VIII Semana de Engenharia de Software e Ciência da Computação, realizada no campus da UFC em Russas.',
+    image: '/certificado-sescomp-2025.webp',
+    file: '/certificado-sescomp-2025.pdf',
+  },
+  {
+    title: 'Diretoria de Marketing do CAAL',
+    issuer: 'Centro Acadêmico Ada Lovelace',
+    date: 'Gestão 2025',
+    workload: '48 horas',
+    description:
+      'Atuação como membro da Diretoria de Marketing, participando do planejamento, organização e execução das atividades da gestão.',
+    image: '/certificado-centro-academico-ada-lovelace-2025.webp',
+    file: '/certificado-centro-academico-ada-lovelace-2025.pdf',
+  },
+];
+
 export default function Home() {
   const rootRef = useRef<HTMLElement>(null);
   const heroImageRef = useRef<HTMLImageElement>(null);
@@ -143,7 +166,11 @@ export default function Home() {
         gsap
           .timeline({ defaults: { ease: 'power3.out' } })
           .from('.site-header', { y: -28, opacity: 0, duration: 0.8 })
-          .from('.hero-animate', { y: 54, opacity: 0, duration: 1, stagger: 0.1 }, '-=0.35')
+          .from(
+            '.hero-animate',
+            { y: 54, opacity: 0, duration: 1, stagger: 0.1 },
+            '-=0.35',
+          )
           .from('.hero__index', { opacity: 0, duration: 0.7 }, '-=0.4');
 
         gsap.to(heroImageRef.current, {
@@ -172,17 +199,19 @@ export default function Home() {
           });
         });
 
-        gsap.utils.toArray<HTMLElement>('.floatie').forEach((element, index) => {
-          gsap.to(element, {
-            x: index % 2 ? -14 : 12,
-            y: index % 3 ? 16 : -18,
-            rotation: index % 2 ? -10 : 12,
-            duration: 2.6 + index * 0.23,
-            ease: 'sine.inOut',
-            repeat: -1,
-            yoyo: true,
+        gsap.utils
+          .toArray<HTMLElement>('.floatie')
+          .forEach((element, index) => {
+            gsap.to(element, {
+              x: index % 2 ? -14 : 12,
+              y: index % 3 ? 16 : -18,
+              rotation: index % 2 ? -10 : 12,
+              duration: 2.6 + index * 0.23,
+              ease: 'sine.inOut',
+              repeat: -1,
+              yoyo: true,
+            });
           });
-        });
 
         gsap.to('.gym-orbit', {
           rotation: 360,
@@ -229,7 +258,8 @@ export default function Home() {
         const progress = timelineProgressRef.current;
         if (!track || !section || !progress) return;
 
-        const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
+        const distance = () =>
+          Math.max(0, track.scrollWidth - window.innerWidth);
         gsap.to(track, {
           x: () => -distance(),
           ease: 'none',
@@ -306,8 +336,7 @@ export default function Home() {
             DESENVOLVEDOR FULL-STACK · DESIGNER
           </p>
           <h1 className="hero-animate">
-            Olá, meu nome é
-            <strong> Ian Lucas.</strong>
+            Olá, meu nome é<strong> Ian Lucas.</strong>
           </h1>
           <p className="hero__subtitle hero-animate">
             E esse é o meu site de portfólio pessoal.
@@ -327,7 +356,7 @@ export default function Home() {
       <section className="about section-shell" id="sobre">
         <div className="section-tag reveal">
           <span>{'{ sobre mim }'}</span>
-          <span>02 — Quem eu sou</span>
+          <span>02 · Quem eu sou</span>
         </div>
         <div className="about__grid">
           <h2 className="display-title reveal">
@@ -341,7 +370,7 @@ export default function Home() {
               estruturados.
             </p>
             <p>
-              Minha experiência cruza tecnologia, design e comunicação — do
+              Minha experiência cruza tecnologia, design e comunicação, do
               código em React e Node.js à criação de identidades e conteúdos
               digitais para projetos acadêmicos.
             </p>
@@ -414,28 +443,45 @@ export default function Home() {
             ))}
 
             <article className="hobby-card" aria-labelledby="hobbies-title">
-              <span className="floatie hobby-emoji hobby-emoji--game" aria-hidden="true">
+              <span
+                className="floatie hobby-emoji hobby-emoji--game"
+                aria-hidden="true"
+              >
                 🎮
               </span>
-              <span className="floatie hobby-emoji hobby-emoji--ball" aria-hidden="true">
+              <span
+                className="floatie hobby-emoji hobby-emoji--ball"
+                aria-hidden="true"
+              >
                 🏀
               </span>
-              <span className="floatie hobby-emoji hobby-emoji--volley" aria-hidden="true">
+              <span
+                className="floatie hobby-emoji hobby-emoji--volley"
+                aria-hidden="true"
+              >
                 🏐
               </span>
-              <span className="floatie hobby-emoji hobby-emoji--run" aria-hidden="true">
+              <span
+                className="floatie hobby-emoji hobby-emoji--run"
+                aria-hidden="true"
+              >
                 🏃
               </span>
-              <span className="floatie hobby-emoji hobby-emoji--code" aria-hidden="true">
+              <span
+                className="floatie hobby-emoji hobby-emoji--code"
+                aria-hidden="true"
+              >
                 💻
               </span>
 
               <div className="hobby-card__content">
                 <span>Fora do código</span>
-                <h3 id="hobbies-title">Movimento também faz parte da rotina.</h3>
+                <h3 id="hobbies-title">
+                  Movimento também faz parte da rotina.
+                </h3>
                 <p>
                   Jogos sempre foram meu principal hobby. Na adolescência,
-                  descobri também a corrida e a musculação — depois de já ter
+                  descobri também a corrida e a musculação, depois de já ter
                   passado por treinos de basquete, vôlei e futsal.
                 </p>
               </div>
@@ -464,10 +510,12 @@ export default function Home() {
       <section className="formation section-shell" id="formacao">
         <div className="section-tag reveal">
           <span>{'{ formação }'}</span>
-          <span>04 — Aprendizado contínuo</span>
+          <span>04 · Aprendizado contínuo</span>
         </div>
         <div className="formation__heading reveal">
-          <h2 className="display-title">Formação que conecta teoria e prática.</h2>
+          <h2 className="display-title">
+            Formação que conecta teoria e prática.
+          </h2>
           <p>
             Uma base acadêmica em evolução, fortalecida por eventos, pesquisa e
             experiências que desenvolvem tanto a técnica quanto a colaboração.
@@ -479,7 +527,7 @@ export default function Home() {
             <div className="degree-card__icon">
               <GraduationCap aria-hidden="true" />
             </div>
-            <p>2024.1 — atual</p>
+            <p>2024.1 · atual</p>
             <h3>Ciência da Computação</h3>
             <span>Universidade Federal do Ceará · Campus de Russas</span>
             <div className="degree-card__footer">
@@ -488,30 +536,61 @@ export default function Home() {
             </div>
           </article>
 
-          <article className="cert-card reveal">
-            <Sparkles aria-hidden="true" />
-            <span>Próxima atualização</span>
-            <h3>Certificações</h3>
-            <p>
-              Espaço preparado para receber certificados, cursos e novas
-              conquistas conforme eles forem adicionados ao portfólio.
-            </p>
-            <div className="cert-card__slots" aria-hidden="true">
-              <i />
-              <i />
-              <i />
+          <div className="certificates reveal">
+            <div className="certificates__intro">
+              <Award aria-hidden="true" />
+              <div>
+                <span>Documentos comprobatórios</span>
+                <h3>Certificações</h3>
+              </div>
             </div>
-          </article>
+
+            <div className="certificates__list">
+              {certificates.map((certificate) => (
+                <article className="certificate-card" key={certificate.title}>
+                  <a
+                    className="certificate-card__preview"
+                    href={certificate.file}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Abrir certificado: ${certificate.title}`}
+                  >
+                    <img
+                      src={certificate.image}
+                      alt={`Prévia do certificado ${certificate.title}`}
+                    />
+                    <span>
+                      Ver certificado <ExternalLink aria-hidden="true" />
+                    </span>
+                  </a>
+                  <div className="certificate-card__body">
+                    <div className="certificate-card__meta">
+                      <span>{certificate.date}</span>
+                      <span>{certificate.workload}</span>
+                    </div>
+                    <h4>{certificate.title}</h4>
+                    <strong>{certificate.issuer}</strong>
+                    <p>{certificate.description}</p>
+                    <a href={certificate.file} target="_blank" rel="noreferrer">
+                      Abrir PDF <ExternalLink aria-hidden="true" />
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="experience section-shell" id="experiencias">
         <div className="section-tag reveal">
           <span>{'{ experiências }'}</span>
-          <span>05 — Onde deixei minha marca</span>
+          <span>05 · Onde deixei minha marca</span>
         </div>
         <div className="experience__heading reveal">
-          <h2 className="display-title">Projetos, equipes e experiências reais.</h2>
+          <h2 className="display-title">
+            Projetos, equipes e experiências reais.
+          </h2>
           <div className="experience__legend">
             <Code2 aria-hidden="true" />
             <span>Desenvolvimento</span>
@@ -551,7 +630,7 @@ export default function Home() {
         <div className="contact__flare" aria-hidden="true" />
         <div className="contact__top reveal">
           <p className="section-kicker">VAMOS CONSTRUIR ALGO?</p>
-          <span>06 — Contato</span>
+          <span>06 · Contato</span>
         </div>
         <div className="contact__content reveal">
           <h2>Uma boa ideia começa com uma conversa.</h2>
