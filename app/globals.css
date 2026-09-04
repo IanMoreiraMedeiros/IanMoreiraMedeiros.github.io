@@ -846,33 +846,19 @@ nav a:hover {
 }
 
 .degree-card {
-  z-index: 0;
-  isolation: isolate;
   padding: clamp(30px, 5vw, 72px);
-}
-
-.degree-card::after {
-  position: absolute;
-  z-index: -1;
-  right: -18%;
-  bottom: -30%;
-  width: 410px;
-  height: 410px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 36px var(--card),
-    0 0 0 37px var(--border),
-    0 0 0 76px var(--card),
-    0 0 0 77px var(--border);
-  content: '';
-  opacity: 0.72;
-  pointer-events: none;
-}
-
-.degree-card > * {
-  position: relative;
-  z-index: 1;
+  background:
+    radial-gradient(
+      circle at calc(100% + 84px) calc(100% - 62px),
+      transparent 0 204px,
+      var(--border) 205px 206px,
+      transparent 207px 241px,
+      var(--border) 242px 243px,
+      transparent 244px 280px,
+      var(--border) 281px 282px,
+      transparent 283px
+    ),
+    var(--card);
 }
 
 .degree-card__icon {
@@ -1566,11 +1552,6 @@ footer a {
 
   .certificate-card__preview {
     min-height: 210px;
-  }
-
-  .degree-card::after {
-    right: -48%;
-    bottom: -36%;
   }
 
   .degree-card__footer {
