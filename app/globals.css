@@ -846,13 +846,14 @@ nav a:hover {
 }
 
 .degree-card {
+  z-index: 0;
   isolation: isolate;
   padding: clamp(30px, 5vw, 72px);
 }
 
 .degree-card::after {
   position: absolute;
-  z-index: 0;
+  z-index: -1;
   right: -18%;
   bottom: -30%;
   width: 410px;
@@ -1158,6 +1159,7 @@ nav a:hover {
 
 .experience-row__index {
   grid-area: index;
+  padding-left: 12px;
   color: var(--primary);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.7rem;
