@@ -608,7 +608,7 @@ export default function Home() {
               <span className="experience-row__index">
                 {String(index + 1).padStart(2, '0')}
               </span>
-              <div>
+              <div className="experience-row__main">
                 <p>{experience.period}</p>
                 <h3>{experience.title}</h3>
                 <strong>{experience.place}</strong>
