@@ -13,9 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    'https://ian-lucas-portfolio-2026.command-syst-1786.chatgpt.site',
-  ),
+  metadataBase: new URL('https://ianmoreiramedeiros.github.io'),
   title: 'Ian Lucas | Portfólio',
   description:
     'Portfólio de Ian Lucas, desenvolvedor full-stack, designer e estudante de Ciência da Computação.',

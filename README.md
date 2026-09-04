@@ -4,7 +4,7 @@ Site de portfólio pessoal desenvolvido para apresentar quem sou, meus interesse
 
 ## Projeto em produção
 
-[Acessar o portfólio](https://ian-lucas-portfolio-2026.command-syst-1786.chatgpt.site)
+[Acessar o portfólio](https://ianmoreiramedeiros.github.io)
 
 ## Sobre o desafio
 
@@ -90,12 +90,17 @@ Depois, acesse `http://localhost:3000` no navegador.
 npm run build
 ```
 
+## Hospedagem
+
+O portfólio é publicado gratuitamente pelo GitHub Pages. Cada atualização enviada para a branch `main` executa uma nova publicação automática por meio do GitHub Actions.
+
 ## Organização do código
 
 - `app/page.tsx`: conteúdo, componentes da página e animações GSAP.
 - `app/globals.css`: identidade visual, responsividade, temas e estados interativos.
 - `app/layout.tsx`: metadados, fontes e configuração geral da página.
 - `public`: fotografias, certificados e imagem de compartilhamento.
+- `.github/workflows`: automação responsável pela publicação no GitHub Pages.
 
 ## Evolução do projeto
 
